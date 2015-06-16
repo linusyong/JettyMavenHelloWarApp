@@ -23,7 +23,7 @@ public class HelloServlet extends HttpServlet {
     response.setContentType("text/html");
     response.setStatus(HttpServletResponse.SC_OK);
     response.getWriter().println("<h1>Hello Servlet</h1>");
-    response.getWriter().println("session=" + request.getSession(true).getId());
+    response.getWriter().println("<p>session=" + request.getSession(true).getId() + "</p>");
 
     Context initCtx = null;
     DataSource ds = null;
@@ -36,7 +36,7 @@ public class HelloServlet extends HttpServlet {
 
       if (rset.next()) {
         Date currentDate = rset.getDate(1);
-        response.getWriter().println("current date from Oracle: " + currentDate);
+        response.getWriter().println("<p>current date from Oracle: " + currentDate + "</p>");
       }
   
       rset.close();
