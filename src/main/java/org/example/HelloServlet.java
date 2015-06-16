@@ -34,8 +34,10 @@ public class HelloServlet extends HttpServlet {
       Statement stmt = conn.createStatement();
       ResultSet rset = stmt.executeQuery("SELECT SYSDATE FROM DUAL");
 
-      Date currentDate = rset.getDate(1);
-      response.getWriter().println("current date from Oracle: " + currentDate);
+      if (rset.next()) {
+        Date currentDate = rset.getDate(1);
+        response.getWriter().println("current date from Oracle: " + currentDate);
+      }
   
       rset.close();
       stmt.close();
