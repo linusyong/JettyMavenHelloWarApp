@@ -29,7 +29,7 @@ public class HelloServlet extends HttpServlet {
     DataSource ds = null;
     try {
       initCtx = new InitialContext();
-      ds = (DataSource)initCtx.lookup("java:/com/env/jdbc/gbds");
+      ds = (DataSource)initCtx.lookup("java:comp/env/jdbc/gbds");
       Connection conn = ds.getConnection();
       Statement stmt = conn.createStatement();
       ResultSet rset = stmt.executeQuery("SELECT SYSDATE FROM DUAL");
